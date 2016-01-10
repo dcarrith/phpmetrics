@@ -15,7 +15,7 @@ function testPhpmetrics () {
   })
 }
 
-function phpmetrics (config, callback) {
+function phpmetrix (config, callback) {
   return execFile(phpmetricsCmd, ['--config='+config], {
     cwd: process.cwd(),
     env: process.env
@@ -35,7 +35,7 @@ module.exports = {
       if (err) throw new Error(err)
     }
 
-    return phpmetrics(cfg, options, callback)
+    return phpmetrix(cfg, options, callback)
   },
   
   phpmetrics: function (config, options, callback) {
@@ -49,11 +49,11 @@ module.exports = {
     testPhp()
     testPhpmetrics()
 
-    phpmetrics(config, options, callback)
+    phpmetrix(config, options, callback)
   },
 
   gruntPlugin: function (grunt) {
-    grunt.task.registerMultiTask('phpmetrics', 'Run static-analysis on PHP files with phpmetrics.', function () {
+    grunt.task.registerMultiTask('phpmetrix', 'Run static-analysis on PHP files with phpmetrics.', function () {
       var done = this.async()
 
       testPhp()
@@ -65,7 +65,7 @@ module.exports = {
         stderr: true
       })
 
-      phpmetrics(config, options, done)
+      phpmetrix(config, options, done)
     })
   }
 }
