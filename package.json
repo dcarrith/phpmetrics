@@ -1,64 +1,29 @@
 {
-  "_args": [
-    [
-      "dcarrith/phpmetrics",
-      "/var/www/epa-rfi-laravel/api"
-    ]
-  ],
-  "_from": "dcarrith/phpmetrics",
-  "_id": "phpmetrics@1.0.0",
-  "_inCache": true,
-  "_installable": true,
-  "_location": "/phpmetrics",
-  "_phantomChildren": {},
-  "_requested": {
-    "hosted": {
-      "directUrl": "https://raw.githubusercontent.com/dcarrith/phpmetrics/master/package.json",
-      "gitUrl": "git://github.com/dcarrith/phpmetrics.git",
-      "httpsUrl": "git+https://github.com/dcarrith/phpmetrics.git",
-      "shortcut": "github:dcarrith/phpmetrics",
-      "ssh": "git@github.com:dcarrith/phpmetrics.git",
-      "sshUrl": "git+ssh://git@github.com/dcarrith/phpmetrics.git",
-      "type": "github"
-    },
-    "name": null,
-    "raw": "dcarrith/phpmetrics",
-    "rawSpec": "dcarrith/phpmetrics",
-    "scope": null,
-    "spec": "github:dcarrith/phpmetrics",
-    "type": "hosted"
-  },
-  "_requiredBy": [
-    "#DEV:/",
-    "/gulp-phpmetrics"
-  ],
-  "_resolved": "git://github.com/dcarrith/phpmetrics.git#bc9f2839f85b2dc1139e4f3ffbfe1d6f2f9a6abd",
-  "_shasum": "a84c4002abf8c3813237d50cf55a28d73f15f819",
-  "_shrinkwrap": null,
-  "_spec": "dcarrith/phpmetrics",
-  "_where": "/var/www/epa-rfi-laravel/api",
+  "name": "phpmetrix",
+  "version": "1.0.0",
+  "description": "phpmetrix for Node.js is a wrapper around phpmetrics that allows for integration with build systems like Grunt, Gulp and more!",
+  "main": "index.js",
   "author": {
     "name": "David Carrithers",
     "url": "https://github.com/dcarrith"
   },
-  "bin": {
-    "phpmetrics": "./cli.js"
-  },
   "bugs": {
-    "url": "https://github.com/dcarrith/phpmetrics/issues"
+    "url": "https://github.com/dcarrith/phpmetrix/issues"
   },
-  "dependencies": {
-    "async": "^1.4.2"
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/dcarrith/phpmetrix.git"
+  },  
+  "license": "MIT",
+  "engines": {
+    "node": ">=0.10.0"
   },
-  "description": "phpmetrics for Node.js is a wrapper around the phpmetrics script that allows for integration with build systems like Grunt, Gulp and more!",
-  "devDependencies": {
-    "bin-check": "^3.0.0",
-    "chai": "^3.3.0",
-    "mocha": "^2.3.3",
-    "standard": "^5.3.1"
+  "scripts": {
+    "test": "standard && mocha ./test/test.js"
   },
-  "gitHead": "bc9f2839f85b2dc1139e4f3ffbfe1d6f2f9a6abd",
-  "homepage": "https://github.com/dcarrith/phpmetrics",
+  "bin": {
+    "phpmetrix": "./cli.js"
+  },
   "keywords": [
     "code-analysis",
     "gruntfriendly",
@@ -69,18 +34,15 @@
     "phpmetrics",
     "static-analysis"
   ],
-  "license": "MIT",
-  "main": "index.js",
-  "name": "phpmetrics",
-  "optionalDependencies": {},
-  "readme": "## phpmetrics\n\n> phpmetrics is a node wrapper around phpmetrics that provides integration with build systems like\n> [Grunt](http://gruntjs.com/), [Gulp](http://gulpjs.com/) and more.\n\n[![npm](http://img.shields.io/npm/v/phplint.svg?style=flat)](https://www.npmjs.com/package/phplint)\n[![Build Status](https://travis-ci.org/dcarrith/phpmetrics.svg?branch=master)](https://travis-ci.org/dcarrith/phpmetrics)\n[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)\n[![Dependency Status](https://david-dm.org/wayneashleyberry/phpmetrics/status.svg?style=flat)](https://david-dm.org/wayneashleyberry/phplint#info=dependencies)\n[![devDependency Status](https://david-dm.org/wayneashleyberry/phplint/dev-status.svg?style=flat)](https://david-dm.org/wayneashleyberry/phplint#info=devDependencies)\n\n## Usage\n\n### CLI\n\n```sh\n$ npm i -g phpmetrics\n$ phpmetrics path/to/config.yml\n```\n\n### Node\n\n```js\nvar phpmetrics = require('phpmetrics').phpmetrics\n\nphpmetrics(['path/to/config.yml'], function (err, stdout, stderr) {\n  if (err) throw new Error(err)\n\n  process.stdout.write(stdout)\n  process.stderr.write(stderr)\n\n  // success!\n})\n```\n\n### NPM\n\n```json\n{\n  \"scripts\": {\n    \"pretest\": \"phpmetrics path/to/config.yml\"\n  },\n  \"devDependencies\": { }\n}\n```\n\n```sh\n$ npm test\n```\n\n### Grunt\n\n\n```js\nmodule.exports = function (grunt) {\n  require('phpmetrics').gruntPlugin(grunt)\n\n  grunt.initConfig({\n    phpmetrics: {\n      config: 'path/to/config.yml',\n      options: {\n        phpCmd: '/usr/local/bin/php', // Defaults to php\n        phpCmd: '/usr/local/bin/phpmetrics', // Defaults to phpmetrics\n        stdout: true,\n        stderr: true\n      }\n    }\n  })\n\n  grunt.registerTask('test', ['phpmetrics'])\n\n}\n```\n\n```sh\n$ grunt test\n```\n\n### Gulp\n\nThe same options that can be used in Grunt can be used in Gulp too.\n\n```js\nvar gulp = require('gulp')\nvar phpmetrics = require('phpmetrics').phpmetrics\n\ngulp.task('phpmetrics', function (cb) {\n  phpmetrics(['path/to/config.yml'], function (err, stdout, stderr) {\n    if (err) {\n      cb(err)\n      process.exit(1)\n    }\n    cb()\n  })\n})\n\ngulp.task('test', ['phpmetrics'])\n```\n\n```sh\n$ gulp test\n```\n\n#### License\n\n[MIT](http://opensource.org/licenses/MIT) © [David Carrithers](https://github.com/dcarrith)\n",
-  "readmeFilename": "readme.md",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/dcarrith/phpmetrics.git"
+  "dependencies": {
+    "async": "^1.4.2",
+    "cache-swap": "^0.2.3",
+    "globby": "^3.0.1"
   },
-  "scripts": {
-    "test": "standard && mocha ./test/test.js"
+  "devDependencies": {
+    "bin-check": "^3.0.0",
+    "chai": "^3.3.0",
+    "mocha": "^2.3.3",
+    "standard": "^5.3.1"
   },
-  "version": "1.0.0"
 }
