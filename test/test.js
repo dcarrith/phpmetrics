@@ -4,7 +4,7 @@
 var chai = require('chai')
 var wrapper = require('../')
 var binCheck = require('bin-check')
-var phpmetrics = wrapper.phpmetrics
+var phpmetrix = wrapper.phpmetrix
 var cli = wrapper.cli
 
 var configFilePath = __dirname + '/config.yml'
@@ -12,20 +12,20 @@ var nonConfigFilePath = __dirname + '/nonconfig.yml'
 
 chai.should()
 
-describe('phpmetrics', function () {
+describe('phpmetrix', function () {
   after(function (done) {
     wrapper.clearCache(done)
   })
 
   describe('using Node', function () {
     it('should NOT throw an error if file is analyzed', function (done) {
-      phpmetrics([configFilePath], function (err, stdout, stderr) {
+      phpmetrix([configFilePath], function (err, stdout, stderr) {
         done(err || stderr)
       })
     })
 
     it('should throw an error if config.yml does not exist', function (done) {
-      phpmetrics([nonConfigFilePath], function (err, stdout, stderr) {
+      phpmetrix([nonConfigFilePath], function (err, stdout, stderr) {
         (err !== undefined).should.be.true
 
         done()
@@ -37,7 +37,7 @@ describe('phpmetrics', function () {
     var initialArgs = process.argv
 
     before(function (done) {
-      process.argv = ['phpmetrics']
+      process.argv = ['phpmetrix']
 
       done()
     })
@@ -59,7 +59,6 @@ describe('phpmetrics', function () {
     it('should throw an error when config.yml does not exist', function (done) {
       cli([nonConfigFilePath], {}, function (err) {
         (err !== undefined).should.be.true
-
         done()
       })
     })
