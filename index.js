@@ -10,7 +10,7 @@ function testPhp () {
 }
 
 function testPhpmetrics () {
-  execFile(phpmetricsCmd, ['-v'], function (err, stdout, stderr) {
+  execFile(phpmetricsCmd, ['--version'], function (err, stdout, stderr) {
     if (err) throw new Error(err)
   })
 }
