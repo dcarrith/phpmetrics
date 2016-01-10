@@ -30,7 +30,7 @@ exec('php -v', function (err, stdout, stderr) {
   if (err) throw new Error(err)
 })
 
-exec('phpmetrics -v', function (err, stdout, stderr) {
+exec('phpmetrics --version', function (err, stdout, stderr) {
   if (err) throw new Error(err)
 })
 
