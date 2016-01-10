@@ -8,10 +8,10 @@ var suppress = false
 if (args.length === 0 || (args.length === 1 && args[0] === 'help')) {
   console.log([
     '',
-    '  Usage: phpmetrics path/to/config.yml',
+    '  Usage: phpmetrix path/to/config.yml',
     '',
     '  Examples:',
-    '  phpmetrics config.yml',
+    '  phpmetrix config.yml',
     ''
   ].join('\n'))
 }
