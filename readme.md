@@ -1,10 +1,10 @@
-## phpmetrics
+## phpmetrix
 
-> phpmetrics is a node wrapper around phpmetrics that provides integration with build systems like
+> phpmetrix is a node wrapper around phpmetrics that provides integration with build systems like
 > [Grunt](http://gruntjs.com/), [Gulp](http://gulpjs.com/) and more.
 
 [![npm](http://img.shields.io/npm/v/phplint.svg?style=flat)](https://www.npmjs.com/package/phplint)
-[![Build Status](https://travis-ci.org/dcarrith/phpmetrics.svg?branch=master)](https://travis-ci.org/dcarrith/phpmetrics)
+[![Build Status](https://travis-ci.org/dcarrith/phpmetrix.svg?branch=master)](https://travis-ci.org/dcarrith/phpmetrix)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
 [![Dependency Status](https://david-dm.org/wayneashleyberry/phpmetrics/status.svg?style=flat)](https://david-dm.org/wayneashleyberry/phplint#info=dependencies)
 [![devDependency Status](https://david-dm.org/wayneashleyberry/phplint/dev-status.svg?style=flat)](https://david-dm.org/wayneashleyberry/phplint#info=devDependencies)
@@ -14,16 +14,16 @@
 ### CLI
 
 ```sh
-$ npm i -g phpmetrics
-$ phpmetrics path/to/config.yml
+$ npm i -g phpmetrix
+$ phpmetrix path/to/config.yml
 ```
 
 ### Node
 
 ```js
-var phpmetrics = require('phpmetrics').phpmetrics
+var phpmetrix = require('phpmetrix').phpmetrix
 
-phpmetrics(['path/to/config.yml'], function (err, stdout, stderr) {
+phpmetrix(['path/to/config.yml'], function (err, stdout, stderr) {
   if (err) throw new Error(err)
 
   process.stdout.write(stdout)
@@ -38,7 +38,7 @@ phpmetrics(['path/to/config.yml'], function (err, stdout, stderr) {
 ```json
 {
   "scripts": {
-    "pretest": "phpmetrics path/to/config.yml"
+    "pretest": "phpmetrix path/to/config.yml"
   },
   "devDependencies": { }
 }
@@ -53,10 +53,10 @@ $ npm test
 
 ```js
 module.exports = function (grunt) {
-  require('phpmetrics').gruntPlugin(grunt)
+  require('phpmetrix').gruntPlugin(grunt)
 
   grunt.initConfig({
-    phpmetrics: {
+    phpmetrix: {
       config: 'path/to/config.yml',
       options: {
         phpCmd: '/usr/local/bin/php', // Defaults to php
@@ -67,7 +67,7 @@ module.exports = function (grunt) {
     }
   })
 
-  grunt.registerTask('test', ['phpmetrics'])
+  grunt.registerTask('test', ['phpmetrix'])
 
 }
 ```
@@ -82,10 +82,10 @@ The same options that can be used in Grunt can be used in Gulp too.
 
 ```js
 var gulp = require('gulp')
-var phpmetrics = require('phpmetrics').phpmetrics
+var phpmetrics = require('phpmetrix').phpmetrics
 
-gulp.task('phpmetrics', function (cb) {
-  phpmetrics(['path/to/config.yml'], function (err, stdout, stderr) {
+gulp.task('phpmetrix', function (cb) {
+  phpmetrix(['path/to/config.yml'], function (err, stdout, stderr) {
     if (err) {
       cb(err)
       process.exit(1)
@@ -94,7 +94,7 @@ gulp.task('phpmetrics', function (cb) {
   })
 })
 
-gulp.task('test', ['phpmetrics'])
+gulp.task('test', ['phpmetrix'])
 ```
 
 ```sh
