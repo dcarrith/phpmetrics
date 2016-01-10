@@ -23,7 +23,7 @@ if (args[0] === '-v' || args[0] === '--version') {
 }
 
 if (args.indexOf('-s') !== -1 || args.indexOf('--suppress') !== -1) {
-  suppress = true
+  suppress = false
 }
 
 exec('php -v', function (err, stdout, stderr) {
