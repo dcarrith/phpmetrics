@@ -1,7 +1,7 @@
-var async = require('async')
-var execFile = require('child_process').execFile
-var phpCmd = 'php'
-var phpmetricsCmd = 'phpmetrics'
+var async = require('async');
+var execFile = require('child_process').execFile;
+var phpCmd = 'php';
+var phpmetricsCmd = 'phpmetrics';
 
 function testPhp () {
   execFile(phpCmd, ['-v'], function (err, stdout, stderr) {
@@ -16,29 +16,39 @@ function testPhpmetrics () {
   })
 }
 
-function phpmetrix (config, callback) {
-  result = execFile(phpmetricsCmd, ['--config='+config], {
+function phpmetrix( config, options, callback ) {
+
+  result = execFile( phpmetricsCmd, [ '--config='+config ], {
     stdio: [
-      0, // Use parents stdin for child
-			'pipe', // Pipe child's stdout to parent
-    	'pipe', // Pipe child's stderr to parent // fs.openSync('err.out', 'w') // Direct child's stderr to a file
+        0,      // Use parents stdin for child
+        'pipe', // Pipe child's stdout to parent
+        null, // Pipe child's stderr to parent // fs.openSync('err.out', 'w') // Direct child's stderr to a file
     ],
     cwd: process.cwd(),
     env: process.env
-  }, callback)
-  
-  result.stdout.on('data', (data) => {
-		console.log(`stdout: ${data}`);
-	});
+  }, callback )
 
-	result.stderr.on('data', (data) => {
-		console.log(`stderr: ${data}`);
-	});
+  result.stdout.on( 'data', function( data ) {
+    // Data is binary at this point
+    console.log( data );
+  });
 
-	result.on('close', (code) => {
-		console.log(`child process exited with code ${code}`);
-	});
-  
+  result.stderr.on( 'data', function( data ) {
+    // Data is binary at this point
+    console.log( data );
+  });
+
+  result.on( 'close', function( code ) {
+    // process has been closed
+  });
+
+  result.on( 'exit', function( code ) {
+    if( code !== 0 ) {
+        // process has exited
+        //console.log( 'Process exited with code: ' + code);
+    }
+  });
+
   return result;
 }
 
@@ -50,15 +60,38 @@ module.exports = {
       stderr: true
     }
 
-    var callback = function (err) {
-      if (cb) return cb(err)
-      if (err) throw new Error(err)
+    var callback = function (error, stdout, stderr) {
+      //if (cb) return cb(error)
+      if (error) throw new Error(error)
+
+      /* To wait until the end of child_process.fileExec
+       * before outputting all stderr data:
+       */
+      /*if (stderr) {
+        if (cb) {
+            cb(stderr);
+        } else {
+            console.log(stderr);
+        }
+      }*/
+
+      /* To wait until the end of child_process.fileExec
+       * before outputting all stdout data:
+       */
+      /*if (stdout) {
+        if (cb) {
+            cb(stdout);
+        } else {
+            console.log(stdout);
+        }
+      }*/
     }
 
     return phpmetrix(cfg, options, callback)
   },
-  
+
   phpmetrics: function (config, options, callback) {
+
     if (typeof options === 'function') {
       callback = options
     }
