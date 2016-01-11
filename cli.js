@@ -34,4 +34,4 @@ exec('phpmetrics --version', function (err, stdout, stderr) {
   if (err) throw new Error(err)
 })
 
-cli(args, {suppress: suppress})
+cli(args, {suppress: suppress});
