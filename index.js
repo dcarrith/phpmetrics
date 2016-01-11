@@ -16,8 +16,8 @@ function testPhpmetrics () {
   })
 }
 
-function phpmetrix (args, callback) {
-  result = execFile(phpmetricsCmd, ['--config='+args.conf], {
+function phpmetrix (config, callback) {
+  result = execFile(phpmetricsCmd, ['--config='+config], {
     stdio: [
       0, // Use parents stdin for child
 			'pipe', // Pipe child's stdout to parent
