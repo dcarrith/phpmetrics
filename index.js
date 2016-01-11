@@ -17,7 +17,7 @@ function testPhpmetrics () {
 }
 
 function phpmetrix (config, callback) {
-  return execFile(phpmetricsCmd, ['--config='+config], {
+  result = execFile(phpmetricsCmd, ['--config='+config], {
     stdio: [
       0, // Use parents stdin for child
 			'pipe', // Pipe child's stdout to parent
@@ -26,6 +26,20 @@ function phpmetrix (config, callback) {
     cwd: process.cwd(),
     env: process.env
   }, callback)
+  
+  result.stdout.on('data', (data) => {
+		console.log(`stdout: ${data}`);
+	});
+
+	result.stderr.on('data', (data) => {
+		console.log(`stderr: ${data}`);
+	});
+
+	result.on('close', (code) => {
+		console.log(`child process exited with code ${code}`);
+	});
+  
+  return result;
 }
 
 module.exports = {
