@@ -5,6 +5,7 @@ var phpmetricsCmd = 'phpmetrics'
 
 function testPhp () {
   execFile(phpCmd, ['-v'], function (err, stdout, stderr) {
+    console.log(stdout)
     if (err) throw new Error(err)
   })
 }
@@ -17,6 +18,11 @@ function testPhpmetrics () {
 
 function phpmetrix (config, callback) {
   return execFile(phpmetricsCmd, ['--config='+config], {
+    stdio: [
+      0, // Use parents stdin for child
+			'pipe', // Pipe child's stdout to parent
+    	'pipe', // Pipe child's stderr to parent // fs.openSync('err.out', 'w') // Direct child's stderr to a file
+    ],
     cwd: process.cwd(),
     env: process.env
   }, callback)
