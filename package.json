@@ -36,8 +36,6 @@
   ],
   "dependencies": {
     "async": "^1.4.2",
-    "cache-swap": "^0.2.3",
-    "globby": "^3.0.1"
   },
   "devDependencies": {
     "bin-check": "^3.0.0",
