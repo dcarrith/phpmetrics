@@ -35,7 +35,7 @@
     "static-analysis"
   ],
   "dependencies": {
-    "async": "^1.4.2",
+    "async": "^1.4.2"
   },
   "devDependencies": {
     "bin-check": "^3.0.0",
