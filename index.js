@@ -90,7 +90,7 @@ module.exports = {
     return phpmetrix(cfg, options, callback)
   },
 
-  phpmetrix: function (config, options, callback) {
+  phpmetrics: function (config, options, callback) {
 
     if (typeof options === 'function') {
       callback = options
