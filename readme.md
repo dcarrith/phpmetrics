@@ -60,7 +60,7 @@ module.exports = function (grunt) {
       config: 'path/to/config.yml',
       options: {
         phpCmd: '/usr/local/bin/php', // Defaults to php
-        phpCmd: '/usr/local/bin/phpmetrics', // Defaults to phpmetrics
+        phpmetricsCmd: '/usr/local/bin/phpmetrics', // Defaults to phpmetrics
         stdout: true,
         stderr: true
       }
