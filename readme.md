@@ -8,10 +8,7 @@
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
 [![Dependency Status](https://david-dm.org/wayneashleyberry/phpmetrics/status.svg?style=flat)](https://david-dm.org/wayneashleyberry/phplint#info=dependencies)
 [![devDependency Status](https://david-dm.org/wayneashleyberry/phplint/dev-status.svg?style=flat)](https://david-dm.org/wayneashleyberry/phplint#info=devDependencies)
-
-## Usage
-
-### CLI
+[![Coverage Status](https://coveralls.io/repos/github/dcarrith/phpmetrix/badge.svg?branch=master)](https://coveralls.io/github/dcarrith/phpmetrix?branch=master)
 
 ```sh
 $ npm i -g phpmetrix
