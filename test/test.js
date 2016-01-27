@@ -1,7 +1,6 @@
 /* global describe, it, before, after */
 'use strict'
 
-var Q = require('q');
 var fs = require('fs');
 var chai = require('chai');
 var wrapper = require('../');
