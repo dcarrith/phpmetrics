@@ -8,6 +8,7 @@
 [![Dependency Status](https://david-dm.org/dcarrith/phpmetrix.svg)](https://david-dm.org/dcarrith/phpmetrix)
 [![devDependency Status](https://david-dm.org/dcarrith/phpmetrix/dev-status.svg)](https://david-dm.org/dcarrith/phpmetrix#info=devDependencies)
 [![Coverage Status](https://coveralls.io/repos/github/dcarrith/phpmetrix/badge.svg?branch=master)](https://coveralls.io/github/dcarrith/phpmetrix?branch=master)
+[![npm](https://img.shields.io/npm/l/express.svg)]()
 
 ```sh
 $ npm i -g phpmetrix
