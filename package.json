@@ -13,13 +13,14 @@
   "repository": {
     "type": "git",
     "url": "git://github.com/dcarrith/phpmetrix.git"
-  },  
+  },
   "license": "MIT",
   "engines": {
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "mocha ./test/test.js"
+    "test": "mocha ./test/test.js",
+    "coverage": "istanbul cover _mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
   },
   "bin": {
     "phpmetrix": "./cli.js"
@@ -40,7 +41,11 @@
   "devDependencies": {
     "bin-check": "^3.0.0",
     "chai": "^3.3.0",
+    "coveralls": "^2.11.6",
+    "istanbul": "^0.4.2",
     "mocha": "^2.3.3",
-    "standard": "^5.3.1"
+    "mocha-lcov-reporter": "^1.0.0",
+    "standard": "^5.3.1",
+    "winston": "^2.1.1"
   }
 }
