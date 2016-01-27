@@ -5,7 +5,7 @@ before_install:
   - sudo apt-get install -y php5 php5-cli
   - curl -sS https://getcomposer.org/installer | php
   - php composer.phar global require 'halleck45/phpmetrics'
-  - export PATH=$PATH:~/.composer/bin
+  - export PATH=$PATH:~/.composer/vendor/bin
   - npm install
   - npm install -g mocha
   - npm install bin-check
