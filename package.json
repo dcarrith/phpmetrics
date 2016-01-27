@@ -19,7 +19,7 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "standard && mocha ./test/test.js"
+    "test": "mocha ./test/test.js"
   },
   "bin": {
     "phpmetrix": "./cli.js"
