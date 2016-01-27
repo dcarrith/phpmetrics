@@ -15,6 +15,7 @@ default:
             #cli: true
             xml:    ./test/reports/phpmetrics.xml
             html:   ./test/reports/phpmetrics.html
+            json:   ./test/reports/phpmetrics.json
             csv:    ./test/reports/phpmetrics.csv
         violations:
             xml:    ./test/reports/violations.xml
