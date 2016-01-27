@@ -3,7 +3,7 @@
 > phpmetrix is a node wrapper around phpmetrics that provides integration with build systems like
 > [Grunt](http://gruntjs.com/), [Gulp](http://gulpjs.com/) and more.
 
-[![npm](http://img.shields.io/npm/v/phplint.svg?style=flat)](https://www.npmjs.com/package/phpmetrix)
+[![npm](https://img.shields.io/npm/v/phpmetrix.svg?style=flat)](https://www.npmjs.com/package/phpmetrix)
 [![Build Status](https://travis-ci.org/dcarrith/phpmetrix.svg?branch=master)](https://travis-ci.org/dcarrith/phpmetrix)
 [![Dependency Status](https://david-dm.org/dcarrith/phpmetrix.svg)](https://david-dm.org/dcarrith/phpmetrix)
 [![devDependency Status](https://david-dm.org/dcarrith/phpmetrix/dev-status.svg)](https://david-dm.org/dcarrith/phpmetrix#info=devDependencies)
