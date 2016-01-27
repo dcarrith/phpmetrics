@@ -5,9 +5,8 @@
 
 [![npm](http://img.shields.io/npm/v/phplint.svg?style=flat)](https://www.npmjs.com/package/phplint)
 [![Build Status](https://travis-ci.org/dcarrith/phpmetrix.svg?branch=master)](https://travis-ci.org/dcarrith/phpmetrix)
-[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
-[![Dependency Status](https://david-dm.org/wayneashleyberry/phpmetrics/status.svg?style=flat)](https://david-dm.org/wayneashleyberry/phplint#info=dependencies)
-[![devDependency Status](https://david-dm.org/wayneashleyberry/phplint/dev-status.svg?style=flat)](https://david-dm.org/wayneashleyberry/phplint#info=devDependencies)
+[![Dependency Status](https://david-dm.org/dcarrith/phpmetrix.svg)](https://david-dm.org/dcarrith/phpmetrix)
+[![devDependency Status](https://david-dm.org/dcarrith/phpmetrix/dev-status.svg)](https://david-dm.org/dcarrith/phpmetrix#info=devDependencies)
 [![Coverage Status](https://coveralls.io/repos/github/dcarrith/phpmetrix/badge.svg?branch=master)](https://coveralls.io/github/dcarrith/phpmetrix?branch=master)
 
 ```sh
