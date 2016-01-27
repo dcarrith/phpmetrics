@@ -8,7 +8,7 @@ before_install:
   - export PATH=$PATH:~/.composer/vendor/bin
   - npm install
   - npm install -g mocha
-  - npm install bin-check
+  - npm install bin-check winston
 node_js:
   - stable
   - 4.2
