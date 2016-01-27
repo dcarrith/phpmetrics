@@ -1,6 +1,6 @@
 {
   "name": "phpmetrix",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "phpmetrix for Node.js is a wrapper around phpmetrics that allows for integration with build systems like Grunt, Gulp and more!",
   "main": "index.js",
   "author": {
